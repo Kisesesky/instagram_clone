@@ -1,4 +1,3 @@
-
 nav{
     display: flex;
     flex-direction: column;
@@ -22,6 +21,7 @@ main{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 950px;
 
 }
 ul li{
@@ -171,8 +171,45 @@ footer{
     font-size: 12px;
     margin: 10px;
     color: #737373;
+    width: 950px;
 
 }
 footer span{
     padding: 5px;
+}
+.miniTag{
+    display: flex;
+    margin: 20px;
+    width: 900px;
+    height: 60px;
+}
+.miniTag ul{
+    display: flex;
+    justify-content: center;
+
+}
+.miniTag img{
+    width: 15px;
+    height: 15px;
+    margin: 4px;
+}
+.miniTag button{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+.posting{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+#tag{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
