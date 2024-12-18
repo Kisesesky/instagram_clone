@@ -1,0 +1,178 @@
+
+nav{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 240px;
+    height: 100%;
+    border-color: #737373;
+
+}
+.container{
+    margin-left: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container_inner{
+    width: 900px;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+ul li{
+    list-style-type: none;
+}
+#mainlogo{
+    width: 100px;
+    height: 29px;
+    margin: 20px;
+}
+#headerMenu{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    font-size: 15px;
+    list-style-type: none;
+    padding: 15px;
+}
+#headerMenu a img{
+    width: 30px;
+    height: 30px;
+}
+#headerMenu li{
+    margin: 15px;
+}
+#headerMenu li a{
+    text-decoration: none;
+    font-size: 16px;
+}
+#picture{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+#setIcon{
+    width: 30px;
+    height: 30px;
+}
+#profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+
+}
+#proBtn,
+#storyBtn,
+#setBtn{
+    width: auto;
+    height: 40px;
+    margin: 6px;
+    border-radius: 0.5em;
+    border: none;
+    cursor: pointer;
+
+}
+#setBtn{
+    background-color: white;
+}
+#footerMenu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#footerMenu li{
+    display: flex;
+
+}
+#footerMenu li a{
+    text-decoration: none;
+    color: #737373;
+    font-size:  12px;
+}
+#footerInfo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+}
+#footerInfo span{
+    text-align: center;
+}
+#linkImg{
+    width: 15px;
+    height: 15px;
+}
+#top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+#infor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+}
+#firstLine{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+#firstLine button{
+    margin: 5px;
+}
+#firstLine h2{
+    margin: 20px;
+}
+#secondLine{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+#secondLine h2{
+    margin: 0px;
+}
+#thirdLine{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%
+}
+#post {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+#post li{
+    display: flex;
+    align-items: center;
+    margin: 15px;
+}
+#post li h4{
+    margin: 5px;
+}
+
+footer{
+    padding: 15px;
+    font-size: 12px;
+    margin: 10px;
+    color: #737373;
+
+}
+footer span{
+    padding: 5px;
+}
