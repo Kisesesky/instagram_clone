@@ -78,15 +78,11 @@
                             <li class="profile__quantity" id="profile-follows">팔로우 <strong>2</strong></li>
                         </ul>
                         <div class="profile__third-block">
-                            <span class="profile__name" id="profile-name">Hello, My Instagram</span>
+                            <span class="profile__name" id="profile-name">이름</span>
                             <p class="profile__description" id="profile-description">Hello, World!!!</p>
                             <span class="profile__url">
                                 <img src="https://elice-contents.github.io/elice-instagram-clone/assets/link_icon.svg" alt="link_icon">
-                                <a href="http://naver.com" id="profile-link" target="_blank">http://naver.com</a>
-                            </span>
-                            <span class="profile__url">
-                                <img src="https://elice-contents.github.io/elice-instagram-clone/assets/link_icon.svg" alt="link_icon">
-                                <a href="https://github.com/Kisesesky" target="_blank">https://github.com/Kisesesky</a>
+                                <a href="https://github.com/Kisesesky" id="profile_website" target="_blank">https://github.com/Kisesesky</a>
                             </span>
                         </div>
                     </div>
@@ -113,6 +109,12 @@
                         </ul>
                     </nav>
                     <div class="posts__gallery">
+                        <div class="posts_item">
+                            <div class="posts_img">
+                                <img src="https://elice-contents.github.io/elice-instagram-clone/assets/camera_icon.svg" alt="camera">
+                            </div>
+                            <h3>게시물 없음</h3>
+                        </div>
                     </div>
                 </section>
             </main>
@@ -145,6 +147,36 @@
             </footer>
         </div>
     </div>
+    <dialog id="uploadModal">
+        <form method="modal" id="uploadForm">
+            <header class="modal_header">
+                <h2>프로필편집</h2>
+                <button id="save">저장</button>
+            </header>
+            <div id="imgChange">
+                <img src="https://elice-contents.github.io/elice-instagram-clone/assets/default_profile.svg" alt="none" id="imagePreview">
+                <img id="changeImg"src="https://elice-contents.github.io/elice-instagram-clone/assets/camera_icon.svg" alt="X">
+                <input id="upload" type="file" accept="image/*">
+                <div id="close">X</div>
+            </div>
+            <div id="modalid">
+                <label for="id"><h>인스타아이디</h></label>
+                <input id ="id" type="text">
+            </div>
+            <div id="modalname">
+                <label for="name"><h>이름</h></label>
+                <input id ="name" type="text">
+            </div>
+            <div id="modalwebsite">
+                <label for="website"><h>웹사이트</h></label>
+                <input id ="website" type="text">
+            </div>
+            <div id="modalprofileIdx">
+                <label for="profileIdx"><h>프로필 설명</h></label>
+                <input id ="profileIdx" type="text">
+            </div>
+        </form>
+    </dialog>
     
     <script src="index.js"></script>
 </body>

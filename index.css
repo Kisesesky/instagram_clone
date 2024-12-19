@@ -94,16 +94,17 @@
   }
   
   .navigation__link:hover {
-    color: #0095f6;
+    background-color:rgba(0, 0, 0, 0.05);
   }
   
   .profile {
     display: flex;
-    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
   }
   
   .profile__image {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,31 +117,43 @@
   }
   
   .profile__info {
-    flex: 3;
     padding-left: 20px;
   }
   
   .profile__first-block {
     display: flex;
+    justify-content: center;
     align-items: center;
   }
   
   .profile__username {
     font-size: 24px;
     font-weight: bold;
+    margin: 13px;
   }
   
   .profile__button {
     background-color: #efefef;
-    color: #fff;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    margin: 4px;
   }
   
   .profile__button:hover {
-    background-color: #007bb5;
+    background-color: white;
+  }
+  .profile__settings{
+    border: none;
+    margin: 4px;
+    background-color: white;
+  }
+  .profile__settings img {
+    width: 20px;
+    cursor: pointer;
+    border: none;
   }
   
   .profile__second-block {
@@ -154,6 +167,8 @@
   }
   
   .profile__third-block {
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
   }
   
@@ -180,12 +195,7 @@
   .profile__url img{
     width: 15px;
   }
-  
-  .profile__settings img {
-    width: 20px;
-    cursor: pointer;
-    border: none;
-  }
+
   
   .posts {
     padding: 20px;
@@ -218,12 +228,42 @@
   .posts__nav-item--selected button {
     font-weight: bold;
   }
+  .posts__gallery{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+ 
+  .posts_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 3px solid #8e8e8e;
+    width: 60;
+    height: 60px;
+    overflow: hidden;
+    margin: 15px;
+  }
+  .posts_img img{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+  }
+  .posts_item{
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    margin: 10px;
+  }
   
   footer {
     margin-top: 40px;
     padding: 20px;
     border-top: 1px solid #dbdbdb;
     text-align: center;
+    font-size: 12px;
   }
   
   .footer__links {
@@ -254,4 +294,75 @@
     border: none;
     color: #8e8e8e;
   }
+  #uploadForm{
+    text-align: center;
+    width: 340px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #modal_header{
+    display: flex;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid #8e8e8e;
+  }
+  #modalid, #modalname,#modalwebsite,#modalprofileIdx{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding: 5px 10px;
+  }
   
+  #save{
+    color: #0095f6;
+    border: none;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    display: flex;
+    top: 10px;
+  }
+  #imgChange{
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+
+  }
+
+  #uploadModal ::backdrop{
+    position: fixed;
+    inset: 0px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  #close{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: #8e8e8e;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  #imagePreview{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+  }
+  #changeImg{
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    transition: opacity 0.3 ease;
+  }
+  #imagePreview:hover #changeImg{
+    opacity: 1;
+  }
+  #upload{
+    display: none;
+  }
+ 
