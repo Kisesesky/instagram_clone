@@ -29,13 +29,14 @@ this.addEventListener('DOMContentLoaded',()=>{
         const image = localStorage.getItem('image');
         if(image){
             imageElement.src = image;
+            imagePreviewElement.src = image;
         }
     }
     function loadModalValue(){
         modalIdElement.value = profileIdElement.textContent;
         modalnameElement.value = profileNameElement.textContent;
         modalWebsiteElement.value = profileWebsiteElement.textContent;
-        modalProfileElement.vlaue = profileDescriptionElement.textContent;
+        modalProfileElement.value = profileDescriptionElement.textContent;
     }
 
     function saveProfileToLocalStorage(){
