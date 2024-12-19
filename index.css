@@ -309,11 +309,18 @@
   }
   .modal_header{
     display: flex;
+    width: 340px;
     margin: 10px;
     text-align: center;
     padding: 10px;
     position: fixed;
     top :20%;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .modal_header h2{
+    display: flex;
   }
   #modalid, #modalname,#modalwebsite,#modalprofileIdx{
     display: flex;
@@ -330,9 +337,11 @@
     border: none;
     background-color: white;
     display: flex;
-    position: fixed;
-    left: 62%;
-    top: 22%;
+    position: absolute;
+    padding: 5px;
+    margin: 5px;
+    top: 0;
+    right: 0;
   }
   #imgChange{
     border-radius: 50%;
