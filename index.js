@@ -31,6 +31,12 @@ this.addEventListener('DOMContentLoaded',()=>{
             imageElement.src = image;
         }
     }
+    function loadModalValue(){
+        modalIdElement.value = profileIdElement.textContent;
+        modalnameElement.value = profileNameElement.textContent;
+        modalWebsiteElement.value = profileWebsiteElement.textContent;
+        modalProfileElement.vlaue = profileDescriptionElement.textContent;
+    }
 
     function saveProfileToLocalStorage(){
         const profileData = {
@@ -49,11 +55,21 @@ this.addEventListener('DOMContentLoaded',()=>{
             profileNameElement.textContent = profileData.name;
             profileWebsiteElement.textContent = profileData.website;
             profileDescriptionElement.textContent = profileData.description;
+
+            modalIdElement.value = profileData.id;
+            modalnameElement.value = profileData.name;
+            modalWebsiteElement.vlaue = profileData.website;
+            modalProfileElement.vlaue = profileData.description;
         } else{
             profileIdElement.textContent = ''
             profileNameElement.textContent = ''
             profileWebsiteElement.textContent ='' 
             profileDescriptionElement.textContent = ''
+
+            modalIdElement.value = ''
+            modalnameElement.value = ''
+            modalWebsiteElement.vlaue = ''
+            modalProfileElement.vlaue = ''
 
         }
     }
@@ -78,6 +94,7 @@ this.addEventListener('DOMContentLoaded',()=>{
 
     // 
     updateElement.addEventListener('click',()=>{
+        loadModalValue();
         loadProfileToLocalStorage();
         uploadModalElement.showModal();
     })

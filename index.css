@@ -302,19 +302,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 20%;
+    left : 43%;
+    background-color: white;
   }
-  #modal_header{
+  .modal_header{
     display: flex;
     margin: 10px;
     text-align: center;
     padding: 10px;
-    border-bottom: 2px solid #8e8e8e;
+    position: fixed;
+    top :20%;
   }
   #modalid, #modalname,#modalwebsite,#modalprofileIdx{
     display: flex;
     flex-direction: column;
     text-align: start;
     padding: 5px 10px;
+    width: 240px;
   }
   
   #save{
@@ -324,13 +330,14 @@
     border: none;
     background-color: white;
     display: flex;
-    top: 10px;
+    position: fixed;
+    left: 56%;
+    top: 22%;
   }
   #imgChange{
     border-radius: 50%;
     display: flex;
     align-items: center;
-
   }
 
   #uploadModal ::backdrop{
@@ -359,10 +366,14 @@
     opacity: 0;
     transition: opacity 0.3 ease;
   }
-  #imagePreview:hover #changeImg{
+  #imagePreview:hover{
     opacity: 1;
   }
   #upload{
     display: none;
   }
+  #modalprofileIdx input{
+    height: 100px;
+  }
+  
  
