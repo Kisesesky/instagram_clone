@@ -331,7 +331,7 @@
     background-color: white;
     display: flex;
     position: fixed;
-    left: 56%;
+    left: 54%;
     top: 22%;
   }
   #imgChange{
@@ -359,12 +359,6 @@
     width: 100px;
     height: 100px;
     cursor: pointer;
-  }
-  #changeImg{
-    width: 80px;
-    height: 80px;
-    opacity: 0;
-    transition: opacity 0.3 ease;
   }
   #imagePreview:hover{
     opacity: 1;
