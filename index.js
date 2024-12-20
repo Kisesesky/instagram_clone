@@ -25,9 +25,9 @@ this.addEventListener('DOMContentLoaded',()=>{
     const postImagePreview = document.getElementById('postimagePreview');
     const postTextElement = document.getElementById('postText');
     const shareElement = document.getElementById('share');
-    const postUploadBtnElement = document.getElementById('postUploadBtn');
     const close2Element = document.getElementById('close2');
-
+    const PostModalPageElement = document.getElementById('PostModalPage');
+    const postGetElement = document.getElementById('postGet')
 
 
     function saveImageToLocalStorage(data){
@@ -69,8 +69,8 @@ this.addEventListener('DOMContentLoaded',()=>{
 
             modalIdElement.value = profileData.id;
             modalnameElement.value = profileData.name;
-            modalWebsiteElement.vlaue = profileData.website;
-            modalProfileElement.vlaue = profileData.description;
+            modalWebsiteElement.value = profileData.website;
+            modalProfileElement.value = profileData.description;
         } else{
             profileIdElement.textContent = ''
             profileNameElement.textContent = ''
@@ -79,11 +79,13 @@ this.addEventListener('DOMContentLoaded',()=>{
 
             modalIdElement.value = ''
             modalnameElement.value = ''
-            modalWebsiteElement.vlaue = ''
-            modalProfileElement.vlaue = ''
+            modalWebsiteElement.value = ''
+            modalProfileElement.value = ''
 
         }
     }
+
+    
 
     saveElement.addEventListener('click',()=>{
         if(imagePreview.src){
@@ -92,6 +94,7 @@ this.addEventListener('DOMContentLoaded',()=>{
             uploadElement.close();
         }
     })
+    
 
     //close클릭 및 esc
     window.addEventListener('keydown', (e)=>{
@@ -140,15 +143,51 @@ this.addEventListener('DOMContentLoaded',()=>{
         postModalElement.close();
     })
 
+    //post function
+    function saveImageToLocalStoragePost(data){
+        localStorage.setItem('image',data)
+        postImageElement.src=data;
+    }
+
+    function loadImageToLocalStoragePost(){
+        const image = localStorage.getItem('image');
+        if(image){
+            postImageElement.src = image;
+            postImagePreview.src = image;
+        }
+    }
+
+    shareElement.addEventListener('click',()=>{
+        if(postImagePreview.src){
+            saveImageToLocalStoragePost(postImagePreview.src);
+            postModalElement.close();
+        }
+    })
+    
+
     //post Modal
     postUploadElement.addEventListener('change',(e)=>{
-        const reader = new FileReader
+        const file = e.target.files[0];
+        if(file){
+            const reader = new FileReader()
+            reader.onload = function(e){
+            const imageData = e.target.result;
+            postImagePreview.src = imageData;
+
+            PostModalPageElement.style.display = 'none';
+            postGetElement.style.display = 'block'
+        }
+        reader.readAsDataURL(file);
+        }
+        
     })
+        
 
 
 
     loadImageToLocalStorage();
     loadProfileToLocalStorage();
+    loadImageToLocalStoragePost();
 
 
 })
