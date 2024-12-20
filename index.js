@@ -22,7 +22,7 @@ this.addEventListener('DOMContentLoaded',()=>{
     const postUploadElement = document.getElementById('postUpload');
     const postModalElement = document.getElementById('postModal');
     const postImageElement = document.getElementById('postImage')
-    const postImagePreview = document.getElementById('postimagePreview');
+    const postImagePreviewElement = document.getElementById('postImagePreview');
     const postTextElement = document.getElementById('postText');
     const shareElement = document.getElementById('share');
     const close2Element = document.getElementById('close2');
@@ -157,13 +157,13 @@ this.addEventListener('DOMContentLoaded',()=>{
         const image = localStorage.getItem('image');
         if(image){
             postImageElement.src = image;
-            postImagePreview.src = image;
+            postImagePreviewElement.src = image;
         }
     }
 
     shareElement.addEventListener('click',()=>{
-        if(postImagePreview.src){
-            saveImageToLocalStoragePost(postImagePreview.src);
+        if(postImagePreviewElement.src){
+            saveImageToLocalStoragePost(postImagePreviewElement.src);
             postModalElement.close();
         }
     })
@@ -176,7 +176,11 @@ this.addEventListener('DOMContentLoaded',()=>{
             const reader = new FileReader()
             reader.onload = function(e){
             const imageData = e.target.result;
-            postImagePreview.src = imageData;
+            postImagePreviewElement.src = imageData;
+
+            postGetElement.style.display = 'block'
+            shareElement.style.display ='block'
+            PostModalPageElement.style.display = 'none'
         }
         reader.readAsDataURL(file);
         }

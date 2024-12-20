@@ -13,17 +13,14 @@
     background-color: #fafafa;
     color: #333;
     display: flex;
-    justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    padding: 20px;
   }
   
   .container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 1200px;
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -315,7 +312,6 @@
     margin: 10px;
     text-align: center;
     padding: 10px;
-    position: fixed;
     top :20%;
     align-items: center;
     justify-content: center;
@@ -473,6 +469,15 @@
   }
   #postGet, #share{
     display: none;
+  }
+  #postImagePreview, #postText{
+    width: 260px;
+    height: 450px;
+  }
+  #postGet{
+    width: auto;
+    height: auto;
+    justify-content: space-between;
   }
 
   
