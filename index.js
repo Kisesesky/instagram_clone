@@ -111,6 +111,7 @@ this.addEventListener('DOMContentLoaded',()=>{
             reader.onload = function(e){
                 const imageData = e.target.result;
                 imagePreviewElement.src = imageData;
+                
             }
             reader.readAsDataURL(file)
         }
