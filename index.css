@@ -307,6 +307,7 @@
     top: 20%;
     left : 43%;
     background-color: white;
+    border-radius: 5%;
   }
   .modal_header{
     display: flex;
@@ -385,5 +386,93 @@
     height: 100px;
     text-align: top;
   }
+  #postModal ::backdrop{
+    position: fixed;
+    inset: 0px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  #postForm{
+    text-align: center;
+    width: 550px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20%;
+    left : 43%;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 5%;
+  }
+  #close2{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: #8e8e8e;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  #postUpload{
+    display: none;
+  }
+  #share{
+    color: #0095f6;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    display: flex;
+    position: absolute;
+    padding: 5px;
+    margin: 5px;
+    top: 0;
+    right: 0;
+  }
+  .postModal_header{
+    display: flex;
+    width: 550px;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top :20%;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 0.5px solid #999;
+  }
   
- 
+  #PostModalPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #PostModalPage p{
+    font-size: 20px;
+    padding: 10px;
+  }
+  #PostModalPage img{
+    width: 70px;
+    height: 70px;
+  }
+  #postUploadBtn{
+    background-color: #0095f6;
+    border: none;
+    border-radius: 6%;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+    font: 14px bold;
+
+  }
+  #postGet, #share{
+    display: none;
+  }
+
+  
+
