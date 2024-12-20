@@ -16,7 +16,17 @@ this.addEventListener('DOMContentLoaded',()=>{
     const profileNameElement = document.getElementById('profile-name')
     const profileWebsiteElement = document.getElementById('profile_website')
     const profileDescriptionElement = document.getElementById('profile-description')
-
+    
+    //postElement
+    const postBtnElement = document.getElementById('postBtn');
+    const postUploadElement = document.getElementById('postUpload');
+    const postModalElement = document.getElementById('postModal');
+    const postImageElement = document.getElementById('postImage')
+    const postImagePreview = document.getElementById('postimagePreview');
+    const postTextElement = document.getElementById('postText');
+    const shareElement = document.getElementById('share');
+    const postUploadBtnElement = document.getElementById('postUploadBtn');
+    const close2Element = document.getElementById('close2');
 
 
 
@@ -93,7 +103,7 @@ this.addEventListener('DOMContentLoaded',()=>{
         uploadModalElement.close();
     })
 
-    // 
+    //프로필 편집 모달
     updateElement.addEventListener('click',()=>{
         loadModalValue();
         loadProfileToLocalStorage();
@@ -116,6 +126,27 @@ this.addEventListener('DOMContentLoaded',()=>{
             reader.readAsDataURL(file)
         }
     })
+
+    //post Modal open,close
+    postBtnElement.addEventListener('click',()=>{
+        postModalElement.showModal();
+    })
+    window.addEventListener('keydown', (e)=>{
+        if(e.key ==='Escape'){
+            postModalElement.close();
+        }
+    })
+    close2Element.addEventListener('click',(e)=>{
+        postModalElement.close();
+    })
+
+    //post Modal
+    postUploadElement.addEventListener('change',(e)=>{
+        const reader = new FileReader
+    })
+
+
+
     loadImageToLocalStorage();
     loadProfileToLocalStorage();
 
