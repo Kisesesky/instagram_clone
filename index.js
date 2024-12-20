@@ -26,6 +26,7 @@ this.addEventListener('DOMContentLoaded',()=>{
     const postTextElement = document.getElementById('postText');
     const shareElement = document.getElementById('share');
     const close2Element = document.getElementById('close2');
+    const postUploadBtnElement = document.getElementById('postUploadBtn')
     const PostModalPageElement = document.getElementById('PostModalPage');
     const postGetElement = document.getElementById('postGet')
 
@@ -134,6 +135,9 @@ this.addEventListener('DOMContentLoaded',()=>{
     postBtnElement.addEventListener('click',()=>{
         postModalElement.showModal();
     })
+    postUploadBtn.addEventListener('click',()=>{
+        postUploadElement.click();
+    })
     window.addEventListener('keydown', (e)=>{
         if(e.key ==='Escape'){
             postModalElement.close();
@@ -173,10 +177,6 @@ this.addEventListener('DOMContentLoaded',()=>{
             reader.onload = function(e){
             const imageData = e.target.result;
             postImagePreview.src = imageData;
-
-
-            PostModalPageElement.style.display = 'none';
-            postGetElement.style.display = 'block'
         }
         reader.readAsDataURL(file);
         }

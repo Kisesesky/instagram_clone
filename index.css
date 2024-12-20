@@ -468,6 +468,7 @@
     margin: 5px;
     color: white;
     font: 14px bold;
+    cursor: pointer;
 
   }
   #postGet, #share{
