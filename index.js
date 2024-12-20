@@ -174,6 +174,7 @@ this.addEventListener('DOMContentLoaded',()=>{
             const imageData = e.target.result;
             postImagePreview.src = imageData;
 
+
             PostModalPageElement.style.display = 'none';
             postGetElement.style.display = 'block'
         }
