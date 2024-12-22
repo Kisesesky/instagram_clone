@@ -20,6 +20,7 @@
   .container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     background-color: #fff;
     border-radius: 10px;
@@ -28,6 +29,7 @@
   
   .container__inner {
     display: flex;
+    width: 935px;
     flex-direction: column;
   }
   
@@ -196,8 +198,11 @@
 
   
   .posts {
-    padding: 20px;
-    border-top: 1px solid #dbdbdb;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
   }
   
   .posts__navigation {
@@ -229,8 +234,7 @@
   .posts__gallery{
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    gap: 16px;
   }
  
   .posts_img{
@@ -239,7 +243,7 @@
     align-items: center;
     border-radius: 50%;
     border: 3px solid #8e8e8e;
-    width: 60;
+    width: 60px;
     height: 60px;
     overflow: hidden;
     margin: 15px;
@@ -253,8 +257,29 @@
     font-weight: bold;
     font-size: 16px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
     margin: 10px;
   }
+  .post img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+  .posts_item2{
+    width: 300px;
+    height: 300px;
+  }
+  .posts_item2 img{
+    width: 300px;
+    height: 300px;
+  }
+
+.post button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
   
   footer {
     margin-top: 40px;
@@ -479,6 +504,32 @@
     height: auto;
     justify-content: space-between;
   }
+  #post__info{
+    width: 25px;
+    height: 25px;
+  }
+  #post__info-item{
+    height: 30px;
+    width: 30px;
+  }
+  #posteditmodal{
+    display: flex;
+    width: 550px;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top :20%;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 0.5px solid #999;
+  }
+  #posteditmodal::backdrop{
+    position: fixed;
+    inset: 0px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
 
   
 
