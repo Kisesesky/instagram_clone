@@ -133,6 +133,9 @@ this.addEventListener('DOMContentLoaded',()=>{
 
     //post Modal open,close
     postBtnElement.addEventListener('click',()=>{
+        postGetElement.style.display = 'none';
+                shareElement.style.display = 'none';
+                PostModalPageElement.style.display = 'block';
         postModalElement.showModal();
     })
     postUploadBtn.addEventListener('click',()=>{
@@ -160,32 +163,137 @@ this.addEventListener('DOMContentLoaded',()=>{
             postImagePreviewElement.src = image;
         }
     }
-
-    shareElement.addEventListener('click',()=>{
-        if(postImagePreviewElement.src){
-            saveImageToLocalStoragePost(postImagePreviewElement.src);
-            postModalElement.close();
+    function createPost(image, text) {
+        const posts = JSON.parse(localStorage.getItem("posts")) || []; 
+        const newPost = {
+            id: posts.length ? posts[posts.length - 1].id + 1 : 1,
+            image, 
+            text,
+            likes: 0,
+            comments: 0
+        };
+    
+        posts.push(newPost);
+        localStorage.setItem("posts", JSON.stringify(posts));
+        updatePostsUI();
+    }
+    
+    function updatePostsUI() {
+        const posts = JSON.parse(localStorage.getItem("posts")) || [];
+        const postsGallery = document.querySelector(".posts__gallery");
+    
+        postsGallery.innerHTML = "";
+    
+        if (posts.length === 0) {
+            postsGallery.style.display = 'flex'
+            postsGallery.innerHTML = `<div class="posts_item">
+                            <div class="posts_img">
+                                <img src="https://elice-contents.github.io/elice-instagram-clone/assets/camera_icon.svg" alt="camera">
+                            </div>
+                            <h3>게시물 없음</h3>
+                        </div>`;
+            return;
         }
-    })
+    
+        posts.forEach((post) => {
+            const postElement = document.createElement("div");
+            postElement.classList.add("posts_item2");
+            postsGallery.style.display = 'grid'
+            postsGallery.style.gridTemplateColumns = 'repeat(3, 1fr)'
+            postElement.innerHTML = `<div class="post" id="post-${post.id}">
+           
+            <img src="${post.image}" alt="post-${post.id}" />
+            <dialog class="posteditmodal">
+              <form method="dialog">
+                <img
+                  class="modal__image"
+                  src="${post.image}"
+                  alt="post-${post.id}"
+                />
+                <article class="posteditmodal__article">
+                  ${post.text}
+                </article>
+                <div class="posteditmodal__update">
+                  <textarea class="posteditmodal__textarea" placeholder="여기에 수정할 내용을 작성하세요.">${post.text}</textarea>
+                  <div class="posteditmodal__update-buttons">
+                    <button class="posteditmodal__update-submit-button">수정</button>
+                    <button class="posteditmodal__update-cancel-button">취소</button>
+                  </div>
+                </div>
+    
+                <div class="posteditmodal__buttons">
+                  <button class="posteditmodal__button posteditmodal__update-button">
+                    <img src="https://elice-contents.github.io/elice-instagram-clone/assets/edit_icon.svg
+                    " alt="edit_icon" />
+                  </button>
+                  <button class="posteditmodal__button posteditmodal__delete-button"> 
+                    <img
+                      src="https://elice-contents.github.io/elice-instagram-clone/assets/trashcan_icon.svg"
+                      alt="trashcan_icon"
+                    />
+                  </button>
+                </div>
+    
+                <button class="modal__close-button">
+                  <img src="https://elice-contents.github.io/elice-instagram-clone/assets/close_icon.svg" alt="close_icon" />
+                </button>
+              </form>
+            </dialog>
+          </div>`
+                ;
+            postsGallery.appendChild(postElement);
+        });
+    
+        document.querySelectorAll('.posteditmodal__update-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const postElement = e.target.closest('.post');
+                const modal = postElement.querySelector('.posteditmodal');
+                modal.showModal();
+        });
+    
+        document.querySelectorAll('.modal__close-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const modal = e.target.closest('.posteditmodal');
+                modal.close();
+            });
+        });
+    
+    }
+    
+    function deletePost(id) {
+        const posts = JSON.parse(localStorage.getItem("posts")) || [];
+        const updatedPosts = posts.filter((post) => post.id !== id);
+        localStorage.setItem("posts", JSON.stringify(updatedPosts));
+        updatePostsUI();
+    }
+    shareElement.addEventListener('click', () => {
+        const imageData = postImagePreviewElement.src;
+        const textdata = postTextElement.value;
+        if (imageData && textdata) {
+            createPost(imageData, textdata);
+        }
+        postModalElement.close();
+    });
     
 
     //post Modal
-    postUploadElement.addEventListener('change',(e)=>{
+    postUploadElement.addEventListener('change', (e) => {
         const file = e.target.files[0];
-        if(file){
-            const reader = new FileReader()
-            reader.onload = function(e){
-            const imageData = e.target.result;
-            postImagePreviewElement.src = imageData;
-
-            postGetElement.style.display = 'block'
-            shareElement.style.display ='block'
-            PostModalPageElement.style.display = 'none'
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imageData = e.target.result;
+                postImagePreviewElement.src = imageData;
+                localStorage.setItem('postImage', imageData);
+    
+                postGetElement.style.display = 'block';
+                shareElement.style.display = 'block';
+                PostModalPageElement.style.display = 'none';
+            };
+            reader.readAsDataURL(file);
         }
-        reader.readAsDataURL(file);
-        }
-        
-    })
+    });
+    
         
 
 
@@ -193,6 +301,7 @@ this.addEventListener('DOMContentLoaded',()=>{
     loadImageToLocalStorage();
     loadProfileToLocalStorage();
     loadImageToLocalStoragePost();
+    updatePostsUI();
 
 
 })
