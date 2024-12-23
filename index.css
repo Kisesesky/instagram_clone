@@ -525,12 +525,13 @@
     left : 43%;
     background-color: white;
     font-weight: bold;
-    border-radius: 5%;
+    border-radius: 1%;
     gap: 5px;
   }
   .posteditmodal form img{
-    width: 260px;
-    height: 450px;
+    width: 49%;
+    height: 100%;
+    border-top-left-radius: 5%;
 
   }
   .posteditmodal::backdrop{
@@ -538,33 +539,84 @@
     inset: 0px;
     background: rgba(0, 0, 0, 0.5);
   }
-  .modal__close-button{
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    color: #8e8e8e;
-    padding: 5px 10px;
-    cursor: pointer;
+  .posteditmodal__update-button{
+    display: fixed;
+    top : 20px;
+    left: 84%;
+    width: 20px;
+    height: 20px;
     border: none;
+    background-color: none;
+    margin: 0;
   }
-  
+  .posteditmodal__delete-button{
+    display: fixed;
+    top : 20px;
+    left: 92%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: none;
+    margin: 0;
+  }
+ 
  .posteditmodal button img{
   width: 30px;
   height: 30px;
  }
  .modal__image{
   width: 260px;
-  height: 450px;
+  height: 600px;
  }
  .posteditmodal__textarea{
-  width: 260px;
-  height: 450px;
+  width: 270px;
+  height: 590px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
  }
- .posteditmodal button{
-  display: flex;
- }
- .posteditmodal__update-buttons{
-  bottom: 50%;
- }
-  
 
+
+ 
+.posteditmodal__close-button{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: #8e8e8e;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.posteditmodal__update-buttons{
+  position: fixed;
+  bottom: 38%;
+  right: 30%;
+  border: none;
+  background-color: #8e8e8e;
+}
+.update-cancel-button{
+  position: fixed;
+  right: 28%;
+  width: 60px;
+  height: 25px;
+  border: none;
+  background-color: #8e8e8e;
+  font-weight: bold;
+  border-radius: 7%;
+  display: none;
+  
+ }
+ .submit-button{
+  position: fixed;
+  left: 76%;
+  width: 60px;
+  height: 25px;
+  border: none;
+  background-color: #8e8e8e;
+  font-weight: bold;
+  border-radius: 7%;
+  display: none;
+
+
+ }

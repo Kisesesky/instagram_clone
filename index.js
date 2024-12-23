@@ -212,16 +212,16 @@ this.addEventListener('DOMContentLoaded',()=>{
                         <div class="posteditmodal__update">
                             <textarea class="posteditmodal__textarea" placeholder="여기에 수정할 내용을 작성하세요.">${post.text}</textarea>
                             <div class="posteditmodal__update-buttons">
-                                <button class="posteditmodal__update-submit-button">수정</button>
-                                <button class="posteditmodal__update-cancel-button">취소</button>
+                                <button class="submit-button">수정</button>
+                                <button class="update-cancel-button">취소</button>
                             </div>
                         </div>
     
                         <div class="posteditmodal__buttons">
-                            <button class="posteditmodal__button posteditmodal__update-button">
+                            <button class="posteditmodal__update-button">
                                 <img src="https://elice-contents.github.io/elice-instagram-clone/assets/edit_icon.svg" alt="edit_icon" />
                             </button>
-                            <button class="posteditmodal__button posteditmodal__delete-button"> 
+                            <button class="posteditmodal__delete-button"> 
                                 <img
                                     src="https://elice-contents.github.io/elice-instagram-clone/assets/trashcan_icon.svg"
                                     alt="trashcan_icon"
@@ -229,19 +229,20 @@ this.addEventListener('DOMContentLoaded',()=>{
                             </button>
                         </div>
     
-                        <button class="modal__close-button">
-                            <img src="https://elice-contents.github.io/elice-instagram-clone/assets/close_icon.svg" alt="close_icon" />
-                        </button>
+                        <div class="posteditmodal__close-button">X</div>
                     </form>
                 </dialog>
             </div>`;
             postsGallery.appendChild(postElement);
+            
         });
+        
    
         document.querySelectorAll('.posteditmodal__update-button').forEach(button => {
             button.addEventListener('click', (e) => {
                 const postElement = e.target.closest('.post');
                 const modal = postElement.querySelector('.posteditmodal');
+
                 modal.showModal();
             });
         });
@@ -261,8 +262,20 @@ this.addEventListener('DOMContentLoaded',()=>{
                 }
             });
         });
+        document.querySelectorAll('.posteditmodal__delete-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const postElement = e.target.closest('.post');
+                const postId = parseInt(postElement.id.replace('post-', ''), 10); 
+                const confirmation = confirm("정말로 삭제하시겠습니까?");
+        
+                if (confirmation) {
+                    deletePost(postId);
+                }
+            });
+        });
     }
-   
+    
 
     function deletePost(id) {
         const posts = JSON.parse(localStorage.getItem("posts")) || [];
